@@ -1,0 +1,249 @@
+:root {
+    --bg: #050816;
+    --bg-card: #0b1220;
+    --text: #f9fafb;
+    --accent: #38bdf8;
+    --accent-soft: rgba(56, 189, 248, 0.1);
+    --danger: #f97373;
+    --muted: #9ca3af;
+    --radius: 18px;
+}
+
+/* Layout général */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #020617 100%);
+    color: var(--text);
+    padding: 20px;
+}
+
+#dashboard {
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 100vh;
+}
+
+/* Header */
+
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background: linear-gradient(135deg, #020617, #0b1220);
+    border-radius: var(--radius);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.6);
+}
+
+.dash-title h1 {
+    font-size: 2.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.dash-title p {
+    margin-top: 4px;
+    font-size: 1.1rem;
+    color: var(--muted);
+}
+
+.dash-clock {
+    text-align: right;
+}
+
+#clock-time {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 600;
+}
+
+#clock-date {
+    display: block;
+    font-size: 1rem;
+    color: var(--muted);
+}
+
+/* Grille principale */
+
+.dash-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-auto-rows: minmax(220px, auto);
+    gap: 20px;
+}
+
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+}
+
+.card h2 {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.card-large {
+    grid-row: span 2;
+}
+
+.card-placeholder {
+    opacity: 0.5;
+    border: 1px dashed rgba(148, 163, 184, 0.4);
+}
+
+/* Météo */
+
+.weather-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    gap: 16px;
+}
+
+.weather-main {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+}
+
+.weather-temp {
+    font-size: 4.2rem;
+    font-weight: 700;
+}
+
+.weather-desc {
+    font-size: 1.4rem;
+    color: var(--accent);
+    text-transform: capitalize;
+}
+
+.weather-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 16px;
+    font-size: 1.1rem;
+}
+
+.weather-details .label {
+    color: var(--muted);
+    margin-right: 8px;
+}
+
+.weather-meta {
+    margin-top: 8px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: var(--muted);
+}
+
+/* Éphémérides */
+
+.eph-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.eph-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.eph-row .label {
+    color: var(--muted);
+}
+
+/* Footer */
+
+.dash-footer {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    color: var(--muted);
+    padding: 8px 4px 2px;
+    border-top: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+/* Responsive (pour laptop / écran plus petit) */
+
+@media (max-width: 1200px) {
+    .dash-grid {
+        grid-template-columns: 1.4fr 1fr;
+        grid-auto-rows: minmax(220px, auto);
+    }
+
+    .card-placeholder {
+        display: none;
+    }
+}
+
+@media (max-width: 900px) {
+    .dash-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .dash-clock {
+        text-align: left;
+    }
+
+    .dash-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card-large {
+        grid-row: span 1;
+    }
+
+    .weather-temp {
+        font-size: 3.2rem;
+    }
+}
+/* News régionales */
+
+.news-content {
+    margin-top: 4px;
+    font-size: 1rem;
+}
+
+#news-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.news-item a {
+    color: var(--text);
+    text-decoration: none;
+}
+
+.news-item a:hover {
+    text-decoration: underline;
+    color: var(--accent);
+}
+
+.news-meta {
+    font-size: 0.85rem;
+    color: var(--muted);
+}

@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+sqlmodel
+requests
+python-dotenv
+jinja2
+fastapi
+uvicorn[standard]
+sqlmodel
+requests
+python-dotenv
+jinja2
+pydantic-settings

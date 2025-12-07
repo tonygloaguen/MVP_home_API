@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="dashboard">
+    <header class="dash-header">
+        <div class="dash-title">
+            <h1>HomeDash</h1>
+            <p>Tableau de bord maison</p>
+        </div>
+        <div class="dash-clock">
+            <span id="clock-time">--:--</span>
+            <span id="clock-date">--/--/----</span>
+        </div>
+    </header>
+
+    <main class="dash-grid">
+        <!-- MÉTÉO -->
+        <section class="card card-large" id="weather-card">
+            <h2>Météo</h2>
+            <div class="card-content weather-content">
+                <div class="weather-main">
+                    <span id="weather-temp" class="weather-temp">--°C</span>
+                    <span id="weather-desc" class="weather-desc">...</span>
+                </div>
+                <div class="weather-details">
+                    <div><span class="label">Ressenti</span> <span id="weather-feels">--°C</span></div>
+                    <div><span class="label">Humidité</span> <span id="weather-humidity">--%</span></div>
+                    <div><span class="label">Pression</span> <span id="weather-pressure">-- hPa</span></div>
+                    <div><span class="label">Vent</span> <span id="weather-wind">-- m/s</span></div>
+                </div>
+                <div class="weather-meta">
+                    <span id="weather-location">--</span>
+                    <span id="weather-updated">Dernière mise à jour : --:--</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ÉPHÉMÉRIDES -->
+        <section class="card card-medium" id="ephemerides-card">
+            <h2>Éphémérides</h2>
+            <div class="card-content eph-content">
+                <div class="eph-row">
+                    <span class="label">Lever du soleil</span>
+                    <span id="eph-sunrise">--:--</span>
+                </div>
+                <div class="eph-row">
+                    <span class="label">Coucher du soleil</span>
+                    <span id="eph-sunset">--:--</span>
+                </div>
+                <div class="eph-row">
+                    <span class="label">Durée du jour</span>
+                    <span id="eph-daylength">-- h --</span>
+                </div>
+                <div class="eph-row">
+                    <span class="label">Phase de lune</span>
+                    <span id="eph-moon">---</span>
+                </div>
+            </div>
+        </section>
+
+                <!-- INFOS RÉGIONALES -->
+        <section class="card card-medium" id="news-card">
+            <h2>Infos régionales</h2>
+            <div class="card-content news-content">
+                <ul id="news-list">
+                    <li class="news-item news-placeholder">Chargement des actualités...</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="dash-footer">
+        <span>HomeDash MVP – météo &amp; éphémérides</span>
+        <span id="footer-refresh-status">Actualisation en cours...</span>
+    </footer>
+</div>
+{% endblock %}
